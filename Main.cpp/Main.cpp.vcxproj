@@ -143,6 +143,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="clsDbLinkedList.h" />
+    <ClInclude Include="clsMyDynamicArray.h" />
     <ClInclude Include="clsMyQueue.h" />
     <ClInclude Include="clsMyStack.h" />
   </ItemGroup>

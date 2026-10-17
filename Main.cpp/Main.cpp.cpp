@@ -1,22 +1,36 @@
  
 
 #include <iostream>
-#include "clsMyStack.h"
+#include "clsMyDynamicArray.h"
 using namespace std;
 
 int main()
-{
-    clsMyStack<int> MyStack;
-    
-    MyStack.Push(10);
-    MyStack.Push(20);
-    MyStack.Push(30);
-    MyStack.Push(40);
-    MyStack.Push(50);
+{ 
+    clsDynamicArray<int> MyArray(5);
 
-    MyStack.Print();
-    MyStack.Pop();
-    MyStack.Print();
+    MyArray.SetItem(0, 1);
+    MyArray.SetItem(1, 10);
+    MyArray.SetItem(2, 50);
+    MyArray.SetItem(3, 100);
+    MyArray.SetItem(4, 150);
+
+    cout << "\nSize = " << MyArray.Size() << endl;
+    MyArray.PrintList();
+    MyArray.InsertAt(2, 5);
+    cout << "\nSize = " << MyArray.Size() << endl;
+    MyArray.PrintList();
+    MyArray.InsertAtBegining(3);
+    cout << "\nSize = " << MyArray.Size() << endl;
+    MyArray.PrintList();
+    MyArray.InsertBefore(1, 2);
+    cout << "\nSize = " << MyArray.Size() << endl;
+    MyArray.PrintList();
+    MyArray.InsertAfter(3, 60);
+    cout << "\nSize = " << MyArray.Size() << endl;
+    MyArray.PrintList();
+    MyArray.InsertAtEnd(1000);
+    cout << "\nSize = " << MyArray.Size() << endl;
+    MyArray.PrintList();
     system("pause>0");
     return 0;
 }
