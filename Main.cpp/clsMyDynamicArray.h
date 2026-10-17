@@ -215,12 +215,16 @@ public:
      }
 
      void InsertBefore(int Index, T Value) {
-
+         if(Index < 1)
+             InsertAt( 0, Value);
+         else
          InsertAt(Index - 1, Value);
      }
 
      void InsertAfter(int Index, T Value) {
-
+         if(Index >= _Size)
+             InsertAt(_Size - 1, Value);
+         else
          InsertAt(Index + 1, Value);
      }
 
