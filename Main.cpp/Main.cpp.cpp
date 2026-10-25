@@ -1,37 +1,57 @@
- 
+//ProgrammingAdvices.com
+//Mohammed Abu-Hadhoud
 
 #include <iostream>
-#include "clsMyDynamicArray.h"
+#include "clsQueueLine.h"
+
 using namespace std;
 
 int main()
-{ 
-    clsDynamicArray<int> MyArray(5);
+{
 
-    MyArray.SetItem(0, 1);
-    MyArray.SetItem(1, 10);
-    MyArray.SetItem(2, 50);
-    MyArray.SetItem(3, 100);
-    MyArray.SetItem(4, 150);
+    clsQueueLine PayBillsQueue("A0", 10);
+    clsQueueLine SubscriptionsQueue("B0", 5);
 
-    cout << "\nSize = " << MyArray.Size() << endl;
-    MyArray.PrintList();
-    MyArray.InsertAt(2, 5);
-    cout << "\nSize = " << MyArray.Size() << endl;
-    MyArray.PrintList();
-    MyArray.InsertAtBegining(3);
-    cout << "\nSize = " << MyArray.Size() << endl;
-    MyArray.PrintList();
-    MyArray.InsertBefore(1, 2);
-    cout << "\nSize = " << MyArray.Size() << endl;
-    MyArray.PrintList();
-    MyArray.InsertAfter(3, 60);
-    cout << "\nSize = " << MyArray.Size() << endl;
-    MyArray.PrintList();
-    MyArray.InsertAtEnd(1000);
-    cout << "\nSize = " << MyArray.Size() << endl;
-    MyArray.PrintList();
-    system("pause>0");
+
+    PayBillsQueue.IssueTicket();
+    PayBillsQueue.IssueTicket();
+    PayBillsQueue.IssueTicket();
+    PayBillsQueue.IssueTicket();
+    PayBillsQueue.IssueTicket();
+
+    cout << "\nPay Bills Queue Info:\n";
+    PayBillsQueue.PrintInfo();
+
+    PayBillsQueue.PrintTicketsLineRTL();
+    PayBillsQueue.PrintTicketsLineLTR();
+
+
+
+    PayBillsQueue.PrintAllTickets();
+
+    PayBillsQueue.ServeNextClient();
+    cout << "\nPay Bills Queue After Serving One client\n";
+    PayBillsQueue.PrintInfo();
+
+    cout << "\nSubscriptions Queue Info:\n";
+
+    SubscriptionsQueue.IssueTicket();
+    SubscriptionsQueue.IssueTicket();
+    SubscriptionsQueue.IssueTicket();
+
+
+    SubscriptionsQueue.PrintInfo();
+
+    SubscriptionsQueue.PrintTicketsLineRTL();
+    SubscriptionsQueue.PrintTicketsLineLTR();
+
+    SubscriptionsQueue.PrintAllTickets();
+
+    SubscriptionsQueue.ServeNextClient();
+    cout << "\nSubscriptions Queue After Serving One client\n";
+    SubscriptionsQueue.PrintInfo();
+
+
     return 0;
 }
- 
+
